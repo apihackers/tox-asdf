@@ -6,8 +6,10 @@ push = true
 tests = tox
 publish =
     python setup.py sdist bdist_wheel
-    twine upload dist/*.whl
-clean = python setup.py clean
+    twine upload dist/*
+clean =
+    python setup.py clean
+    rm -fr dist
     
 files = README.md
 
