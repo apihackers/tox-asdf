@@ -1,0 +1,30 @@
+[bumpr]
+file = tox_asdf/__init__.py
+vcs = git
+tag_annotation = version {version}
+push = true
+tests = tox
+publish =
+    python setup.py sdist bdist_wheel
+    twine upload dist/*.whl
+clean = python setup.py clean
+    
+files = README.md
+
+[bump]
+unsuffix = true
+message = Bumped version {version}
+
+[prepare]
+part = patch
+suffix = dev
+
+[changelog]
+file = CHANGELOG.md
+bump = ## {version} ({date:%Y-%m-%d})
+prepare = ## Current (in progress)
+separator =
+
+[replace]
+dev = ?branch=master
+stable = ?tag={version}
