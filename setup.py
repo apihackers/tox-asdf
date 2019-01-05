@@ -7,7 +7,7 @@ import re
 
 from setuptools import setup
 
-RE_BADGE = re.compile(r'^\[\!\[(?P<text>.*?)\]\[(?P<badge>.*?)\]\]\[(?P<target>.*?)\]$', re.M)
+RE_BADGE = re.compile(r'^\[\!\[(?P<text>.*?)\]\((?P<badge>.*?)\)\]\((?P<target>.*?)\)$', re.M)
 
 BADGES_TO_KEEP = []
 
