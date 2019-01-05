@@ -1,0 +1,6 @@
+include LICENSE MANIFEST.in README.md CHANGELOG.md
+
+recursive-include requirements *
+recursive-include tox_asdf *
+
+global-exclude *~ *.egg *.pyc

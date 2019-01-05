@@ -1,0 +1,16 @@
+language: python
+python:
+  - 2.7
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7
+  - pypy
+  - pypy3
+install:
+  - pip install -e . -r requirements/develop.pip tox codecov
+script:
+  - flake8
+  - pytest -v --cov=tox_asdf --cov-report=term --cov-report=xml:reports/coverage.xml
+after_success:
+  - codecov --file=reports/coverage.xml
