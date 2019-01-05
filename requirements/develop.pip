@@ -5,3 +5,5 @@ pytest-mock
 pytest-sugar
 flake8
 wheel
+# Fixes those godamn pip erros
+pluggy>=0.7
