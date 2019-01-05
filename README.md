@@ -1,6 +1,6 @@
 # tox-asdf
 
-[![Build Status](https://travis-ci.com/apihackers/tox-asdf.svg?branch=master)](https://travis-ci.com/apihackers/tox-asdf)
+[![Build Status](https://travis-ci.com/apihackers/tox-asdf.svg?tag=0.1.0)](https://travis-ci.com/apihackers/tox-asdf)
 [![codecov](https://codecov.io/gh/apihackers/tox-asdf/branch/master/graph/badge.svg)](https://codecov.io/gh/apihackers/tox-asdf)
 [![Last version](https://img.shields.io/pypi/v/tox-asdf.svg)](https://pypi.python.org/pypi/tox-asdf)
 [![License](https://img.shields.io/pypi/l/tox-asdf.svg)](https://pypi.python.org/pypi/tox-asdf)
