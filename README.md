@@ -1,5 +1,11 @@
 # tox-asdf
 
+[![Build Status](https://travis-ci.com/apihackers/tox-asdf.svg?branch=master)](https://travis-ci.com/apihackers/tox-asdf)
+[![codecov](https://codecov.io/gh/apihackers/tox-asdf/branch/master/graph/badge.svg)](https://codecov.io/gh/apihackers/tox-asdf)
+[![Last version](https://img.shields.io/pypi/v/tox-asdf.svg)](https://pypi.python.org/pypi/tox-asdf)
+[![License](https://img.shields.io/pypi/l/tox-asdf.svg)](https://pypi.python.org/pypi/tox-asdf)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/tox-asdf.svg)](https://pypi.python.org/pypi/tox-asdf)
+
 A Tox plugin using [asdf] to find python executables.
 
 
