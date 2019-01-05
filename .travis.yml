@@ -6,7 +6,6 @@ python:
   - 3.5
   - 3.6
   - 3.7
-  - pypy2.7
   - pypy3.5
 install:
   - pip install -e . -r requirements/develop.pip tox codecov
