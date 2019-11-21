@@ -15,6 +15,12 @@ def test_best_patch():
     assert version == '3.6.3'
 
 
+def test_best_patch_not_alphabetical():
+    versions = '2.7.9', '2.7.17'
+    version = plugin.best_version('2.7', versions)
+    assert version == '2.7.17'
+
+
 def test_multiple_digits():
     versions = '2.7.0', '3.5.0', '3.6.0', '3.6.1', '3.6.10', '3.6.11', '3.7.0'
     version = plugin.best_version('3.6', versions)
