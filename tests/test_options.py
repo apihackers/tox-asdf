@@ -1,11 +1,11 @@
 from __future__ import print_function
 
-from tox.session import prepare, build_session
+import tox.session
 
 
 def init(args):
-    config = prepare(args)
-    return build_session(config)
+    config = tox.session.load_config(args)
+    return tox.session.build_session(config)
 
 
 class TestToxOptions:
