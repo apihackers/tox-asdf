@@ -1,5 +1,6 @@
 import logging
 import os
+import pkg_resources
 import subprocess
 import tox
 
@@ -95,7 +96,10 @@ def tox_configure(config):
 def best_version(version, versions):
     '''Find the best (latest stable) release matching version'''
     compatibles = (v for v in versions if v.startswith(version))
-    return next(iter(sorted(compatibles, reverse=True)), None)
+    sorted_compatibles = sorted(compatibles,
+                                reverse=True,
+                                key=pkg_resources.parse_version)
+    return next(iter(sorted_compatibles), None)
 
 
 def handle_asdf_error(error):
