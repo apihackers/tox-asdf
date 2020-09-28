@@ -11,7 +11,7 @@ A Tox plugin using [asdf] to find python executables.
 
 ## Prerequisites
 
-This plugin is made exclusevly to support [asdf] so obviously you will need a functionnal [asdf] installation as well as the [`asdf-python`][asdf-python] plugin.
+This plugin is made exclusively to support [asdf] so obviously you will need a functional [asdf] installation as well as the [`asdf-python`][asdf-python] plugin.
 
 
 ## Installation
