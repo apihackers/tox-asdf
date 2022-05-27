@@ -3,6 +3,7 @@ pytest>=4.0.0
 pytest-cov
 pytest-mock
 pytest-sugar
+pytest-xdist
 flake8
 wheel
 # Fixes those godamn pip erros
