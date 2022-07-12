@@ -2,7 +2,6 @@ import os
 import subprocess
 
 import pytest
-from six import string_types
 
 
 class MockPopen(object):
@@ -62,7 +61,7 @@ class Asdf:
         popen = MockPopen(cmd)
         stdout, stderr, code = "", "", -1
 
-        if isinstance(cmd, string_types):
+        if isinstance(cmd, str):
             cmd = [p.strip() for p in cmd.split()]
         cmd, args = cmd[0], cmd[1:]
 

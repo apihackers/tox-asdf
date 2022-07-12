@@ -34,9 +34,9 @@ def test_dev_suffix():
 
 
 def test_dev_only():
-    versions = "2.7.0", "3.5.0", "3.6-dev"
-    version = plugin.best_version("3.6", versions)
-    assert version == "3.6-dev"
+    versions = "2.7.0", "3.5.0", "3.6-dev", "3.7.0", "3.8.0", "3.9.0", "3.10.0", "3.11-dev"
+    assert plugin.best_version("3.6", versions) == "3.6-dev"
+    assert plugin.best_version("3.11", versions) == "3.11-dev"
 
 
 @pytest.mark.parametrize("version", ["2.6", "3.4", "3.8"])

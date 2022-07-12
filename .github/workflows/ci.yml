@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9, 3.10]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11-dev"]
         os: [ubuntu-latest, macOS-latest, windows-latest]
 
     steps:
@@ -30,4 +30,4 @@ jobs:
         run: pdm sync -d -G test
 
       - name: Run Tests
-        run: pdm run -v test -v
+        run: pdm run test -v
