@@ -2,7 +2,7 @@ import logging
 import os
 import subprocess
 
-import tox  # type: ignore
+import tox
 from packaging.version import parse
 
 

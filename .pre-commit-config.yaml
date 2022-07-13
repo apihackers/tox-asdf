@@ -20,4 +20,8 @@ repos:
     rev: v0.961
     hooks:
       - id: mypy
-        args: [--install-types, --non-interactive]
+        additional_dependencies:
+         - packaging
+         - tox
+        exclude: ^tests/
+

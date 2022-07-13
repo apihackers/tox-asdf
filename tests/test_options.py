@@ -1,4 +1,4 @@
-import tox.session  # type: ignore
+import tox.session
 
 
 def init(args):
