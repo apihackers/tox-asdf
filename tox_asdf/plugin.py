@@ -1,8 +1,9 @@
 import logging
 import os
-import pkg_resources
 import subprocess
-import tox
+
+import pkg_resources
+import tox  # type: ignore
 
 
 class AsdfError(Exception):
@@ -111,9 +112,7 @@ def parse_config_versions(tox_config, plugin_config):
 def best_version(version, versions):
     """Find the best (latest stable) release matching version"""
     compatibles = (v for v in versions if v.startswith(version))
-    sorted_compatibles = sorted(
-        compatibles, reverse=True, key=pkg_resources.parse_version
-    )
+    sorted_compatibles = sorted(compatibles, reverse=True, key=pkg_resources.parse_version)
     return next(iter(sorted_compatibles), None)
 
 
@@ -134,10 +133,7 @@ def asdf_get_installed(version):
     """Get the best matching installed version"""
     try:
         output = subprocess.check_output(
-            "asdf list python",
-            shell=True,
-            stderr=subprocess.STDOUT,
-            universal_newlines=True,
+            "asdf list python", shell=True, stderr=subprocess.STDOUT, universal_newlines=True
         )
     except subprocess.CalledProcessError as e:
         handle_asdf_error(e)

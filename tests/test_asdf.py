@@ -29,9 +29,7 @@ class TestAsdfGetInstalled:
     def test_return_pypy_python_binary_path(self, asdf):
         assert plugin.asdf_get_installed("pypy2.7") == "pypy2.7-6.0.0"
 
-    @pytest.mark.pythons(
-        "2.7.15", "3.6.0", "pypy2.7-6.0.0", "pypy3.5-6.0.0", "pypy3.8-7.0.0"
-    )
+    @pytest.mark.pythons("2.7.15", "3.6.0", "pypy2.7-6.0.0", "pypy3.5-6.0.0", "pypy3.8-7.0.0")
     def test_return_pypy3_5_python_binary_path(self, asdf):
         assert plugin.asdf_get_installed("pypy3.5") == "pypy3.5-6.0.0"
 
@@ -41,9 +39,7 @@ class TestAsdfGetInstalled:
 
     @pytest.mark.pythons("2.7.15", "3.6.0", "pypy2.7-6.0.0", "pypy3.8-7.0.0")
     def test_rely_on_best_version(self, asdf, mocker):
-        best_version = mocker.patch.object(
-            plugin, "best_version", return_value="result"
-        )
+        best_version = mocker.patch.object(plugin, "best_version", return_value="result")
         assert plugin.asdf_get_installed("3.6") == "result"
         best_version.assert_called_once_with("3.6", mocker.ANY)
 
@@ -86,8 +82,6 @@ class TestAsdfInstall:
 
     @pytest.mark.all_pythons("2.7.15", "3.6.0", "pypy2.7-6.0.0", "pypy3.8-7.0.0")
     def test_rely_on_best_version(self, asdf, mocker):
-        best_version = mocker.patch.object(
-            plugin, "best_version", return_value="result"
-        )
+        best_version = mocker.patch.object(plugin, "best_version", return_value="result")
         assert plugin.asdf_install("3.6") == "result"
         best_version.assert_called_once_with("3.6", mocker.ANY)
