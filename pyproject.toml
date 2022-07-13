@@ -1,0 +1,121 @@
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[project]
+name = "tox-asdf"
+version = "0.1.1.dev"
+description = "A plugin telling tox to use asdf to find python executables"
+authors = [
+  {name = "Axel H.", email = "noirbizarre+tox-asdf@gmail.com"},
+  {name = "API Hackers", email = "pypi+tox-asdf@apihackers.com"},
+]
+requires-python = ">=3.7"
+dependencies = [
+  "tox>=2.0",
+]
+readme = "README.md"
+license = {text = "MIT"}
+keywords = [
+  "tox",
+  "asdf",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 2",
+  "Programming Language :: Python :: 2.7",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.entry-points.tox]
+asdf = "tox_asdf.plugin"
+
+[project.urls]
+Homepage = "https://github.com/apihackers/tox-asdf"
+
+[project.optional-dependencies]
+test = [
+  "pytest>=4.0.0",
+  "pytest-cov",
+  "pytest-mock",
+  "pytest-sugar",
+]
+lint = [
+  "flake8",
+  "black",
+  "isort",
+  "mypy",
+]
+
+[tool.pdm]
+[tool.pdm.scripts]
+lint = "pre-commit run --all-files"
+test = {cmd = "pytest", help = "Run the test suite"}
+cover = {composite = [
+  "test --cov --cov-report=term --cov-report=xml --cov-report=html --junitxml=reports/tests.xml",
+], help = "Run the test suite with coverage"}
+tox = "tox"
+
+
+[tool.pdm.vscode]
+linters = ["flake8"]
+formatter = "black"
+test = "pytest"
+isort = true
+
+
+[tool.black]
+line-length = 100
+preview = true
+
+
+[tool.isort]
+profile = "black"
+atomic = true
+filter_files = true
+known_first_party = ["tox_asdf"]
+known_third_party = ["tox"]
+
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = [
+  "tests/",
+]
+markers = [
+  "pythons: mark fake Python installs",
+  "all_pythons: makr fake available Pythons",
+  "asdf_error: Expect an ASDF error",
+  "asdf_missing: Mark a test runnning without ASDF",
+  "asdf_python_missing: Mark a test running with a missing Python version"
+]
+
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+
+
+[tool.coverage]
+[tool.coverage.run]
+branch = true
+source = [
+  "tox_asdf",
+]
+[tool.coverage.html]
+directory = "reports/coverage"
+[tool.coverage.xml]
+output = "reports/coverage.xml"

@@ -46,6 +46,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+reports/
 
 # Translations
 *.mo
@@ -89,6 +90,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.pdm.toml
 
 # Spyder project settings
 .spyderproject
