@@ -265,6 +265,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "tox-pdm"
+version = "0.5.0"
+requires_python = ">=3.7"
+summary = "A plugin for tox that utilizes PDM as the package manager and installer"
+dependencies = [
+    "toml>=0.10",
+    "tox>=3.18.0",
+]
+
+[[package]]
 name = "typed-ast"
 version = "1.5.4"
 requires_python = ">=3.6"
@@ -297,7 +307,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:22cee96a42d049d36bbc111e995345e4b9e65dac16f865393f06bf7508f635fa"
+content_hash = "sha256:a7347e61a353643014034c9e67b551a0b566d0ebcd4b36a11d54e621504c5050"
 
 [metadata.files]
 "atomicwrites 1.4.1" = [
@@ -506,6 +516,10 @@ content_hash = "sha256:22cee96a42d049d36bbc111e995345e4b9e65dac16f865393f06bf750
 "tox 3.25.1" = [
     {url = "https://files.pythonhosted.org/packages/83/14/f827cd5cb88aec768bb43c9e630df5a6bd358da54728122621133e2d1850/tox-3.25.1-py2.py3-none-any.whl", hash = "sha256:c38e15f4733683a9cc0129fba078633e07eb0961f550a010ada879e95fb32632"},
     {url = "https://files.pythonhosted.org/packages/52/cb/16711c38f6503e8cd8c691a7b5500364fb0d7ee32a79fc3f8929968cd519/tox-3.25.1.tar.gz", hash = "sha256:c138327815f53bc6da4fe56baec5f25f00622ae69ef3fe4e1e385720e22486f9"},
+]
+"tox-pdm 0.5.0" = [
+    {url = "https://files.pythonhosted.org/packages/0e/bb/7b4956b7549bba40ef8d7de808a4732e340b81fd2c1975cebc5c16ba54d0/tox-pdm-0.5.0.tar.gz", hash = "sha256:45531c80c9670e7d9a0109ec5ab0d9add0492db4b41aa4ae0f20b295e4fd60e3"},
+    {url = "https://files.pythonhosted.org/packages/25/de/6616dd1a9d80a41165358534f3aa2e4f303a68abe587ca10acd5034d1024/tox_pdm-0.5.0-py3-none-any.whl", hash = "sha256:0075ff9ed47ee13dc6e55122e6da121661a5553a633b8dd278013fbee81e4bb4"},
 ]
 "typed-ast 1.5.4" = [
     {url = "https://files.pythonhosted.org/packages/0f/59/430b86961d63278fcbced5ba72655ee93aa35e8e908bad4ff138480eb25d/typed_ast-1.5.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:669dd0c4167f6f2cd9f57041e03c3c2ebf9063d0757dc89f79ba1daa2bfca9d4"},

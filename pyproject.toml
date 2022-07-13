@@ -59,6 +59,10 @@ lint = [
   "isort",
   "mypy",
 ]
+tox = [
+  "tox",
+  "tox-pdm>=0.5",
+]
 
 [tool.pdm]
 [tool.pdm.scripts]
