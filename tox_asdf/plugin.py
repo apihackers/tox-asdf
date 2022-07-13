@@ -3,7 +3,7 @@ import os
 import subprocess
 
 import tox
-from packaging.version import parse
+from packaging.version import Version
 
 
 class AsdfError(Exception):
@@ -35,6 +35,34 @@ class Config(object):
         self.pypy2_version = "pypy2.7"
         self.pypy3_version = "pypy3.8"
 
+
+KNOWN_FLAVOURS = (
+    "activepython",
+    "anaconda",
+    "anaconda2",
+    "anaconda3",
+    "graalpython",
+    "ironpython",
+    "jython",
+    "mambaforge",
+    "micropython",
+    "miniconda",
+    "miniconda2",
+    "miniconda3",
+    "miniforge3",
+    "pypy",
+    "pypy2",
+    "pypy2.7",
+    "pypy3",
+    "pypy3.3",
+    "pypy3.5",
+    "pypy3.6",
+    "pypy3.7",
+    "pypy3.8",
+    "pypy3.9",
+    "pyston",
+    "stackless",
+)
 
 CFG = Config()
 
@@ -109,10 +137,16 @@ def parse_config_versions(tox_config, plugin_config):
     plugin_config.pypy3_version = pypy3
 
 
+def _version_key(version: str) -> Version:
+    if version.startswith(KNOWN_FLAVOURS):
+        return Version(version.split("-", 1)[-1])
+    return Version(version)
+
+
 def best_version(version, versions):
     """Find the best (latest stable) release matching version"""
     compatibles = (v for v in versions if v.startswith(version))
-    sorted_compatibles = sorted(compatibles, reverse=True, key=parse)
+    sorted_compatibles = sorted(compatibles, reverse=True, key=_version_key)
     return next(iter(sorted_compatibles), None)
 
 
