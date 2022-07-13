@@ -12,7 +12,8 @@ authors = [
 ]
 requires-python = ">=3.7"
 dependencies = [
-  "tox>=2.0",
+    "tox>=2.0",
+    "packaging>=21.3",
 ]
 readme = "README.md"
 license = {text = "MIT"}

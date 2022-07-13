@@ -2,8 +2,8 @@ import logging
 import os
 import subprocess
 
-import pkg_resources
 import tox  # type: ignore
+from packaging.version import parse
 
 
 class AsdfError(Exception):
@@ -112,7 +112,7 @@ def parse_config_versions(tox_config, plugin_config):
 def best_version(version, versions):
     """Find the best (latest stable) release matching version"""
     compatibles = (v for v in versions if v.startswith(version))
-    sorted_compatibles = sorted(compatibles, reverse=True, key=pkg_resources.parse_version)
+    sorted_compatibles = sorted(compatibles, reverse=True, key=parse)
     return next(iter(sorted_compatibles), None)
 
 
